@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let pegawai = 'Ridwan'
+        let Jabatan = 'Manager'
+        let Status = 'Menikah'
+
+        let Gaji_Pokok 
+        let Tunjangan_Jabatan
+        let BPJS
+        let Tunjangan_Keluarga
+        let Total_Gaji
+
+        if (Jabatan=='Manager') {
+            Gaji_Pokok=150000000;
+        }
+        else if (Jabatan=='Asisten') {
+            Gaji_Pokok=100000000
+        }
+        else {
+            Gaji_Pokok=5000000
+        }
+        Tunjangan_Jabatan=Gaji_Pokok * 15 / 100
+        BPJS=Gaji_Pokok * 10 / 100
+        Tunjangan_Keluarga=Status=='Menikah'? Gaji_Pokok * 20 / 100 : 0
+        Total_Gaji=Gaji_Pokok + Tunjangan_Jabatan + Tunjangan_Keluarga + BPJS 
+
+        document.write(`
+    <h2>Nama pegawai: ${pegawai}</h2>
+    <h2>Jabatan : ${Jabatan}</h2>
+    <h2>Status : ${Status}</h2>
+    <table border="1" >
+        <thead>
+            <tr>
+                <th>Data Gaji</th>
+                <th>Nominal Gaji</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Gaji Pokok</td>
+                <td>${Gaji_Pokok}</td>
+            </tr>
+            <tr>
+                <td>Tunjangan Jabatan</td>
+                <td>${Tunjangan_Jabatan}</td>
+            </tr>
+            <tr>
+                <td>Tunjangan Keluarga</td>
+                <td>${Tunjangan_Keluarga}</td>
+            </tr>
+            <tr>
+                <td>BPJS</td>
+                <td>${BPJS}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Total Gaji</th>
+                <th>${Total_Gaji}</th>
+            </tr>
+        </tfoot>
+    </table>
+        `)
+
+    </script>
+
+
+
+
+
+</body>
+</html>
