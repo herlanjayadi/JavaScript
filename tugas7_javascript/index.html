@@ -23,27 +23,68 @@
 
 <body>
   <div class="accordion" id="accordionExample">
-    <div class="accordion-item">
+    <div class="accordion-item" >
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
           aria-expanded="true" aria-controls="collapseOne">
           Hewan Unggas
         </button>
       </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+      <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne"
         data-bs-parent="#accordionExample">
         <div class="accordion-body">
           <div class="flex-container">
             <div class="hewan-item" data-nama="Burung Hantu" data-gambar="hantu.jpg" data-audio="hantu.ogg">Burung Hantu</div>
-            <div class="hewan-item " data-nama="Ayam" data-gambar="ayam.jpg" data-audio="ayam.ogg" >Ayam</div>
+            <div class="hewan-item " data-nama="Ayam" data-gambar="ayam.jpeg" data-audio="ayam.ogg" >Ayam</div>
             <div class="hewan-item" data-nama="Burung Garuda" data-gambar="garuda.jpg" data-audio="garuda.ogg">Burung Garuda</div>
             <div class="hewan-item" data-nama="Burung Puyuh" data-gambar="puyuh.jpg" data-audio="puyuh.ogg">Burung Puyuh</div>
           </div>
         </div>
       </div>
     </div>
-    
+    <div class="accordion-item" >
+      <h2 class="accordion-header" id="headingtwo">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsetwo"
+          aria-expanded="true" aria-controls="collapsetwo">
+          Hewan Buas
+        </button>
+      </h2>
+      <div id="collapsetwo" class="accordion-collapse collapse " aria-labelledby="headingtwo"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <div class="flex-container">
+            <div class="hewan-item" data-nama="Singa" data-gambar="singa.jpg" data-audio="singa.ogg">Singa</div>
+            <div class="hewan-item " data-nama="Buaya" data-gambar="buaya.jpg" data-audio="buaya.ogg" >Buaya</div>
+            <div class="hewan-item" data-nama="Harimau" data-gambar="harimau.jpeg" data-audio="harimau.ogg">Harimau</div>
+            <div class="hewan-item" data-nama="Beruang" data-gambar="beruang.jpeg" data-audio="beruang.ogg">Beruang</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item" >
+      <h2 class="accordion-header" id="headingthree">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsethree"
+          aria-expanded="true" aria-controls="collapsethree">
+          Hewan Ternak
+        </button>
+      </h2>
+      <div id="collapsethree" class="accordion-collapse collapse " aria-labelledby="headingthree"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <div class="flex-container">
+            <div class="hewan-item" data-nama="Kambing" data-gambar="kambing.jpg" data-audio="kambing.ogg">Kambing</div>
+            <div class="hewan-item " data-nama="Sapi" data-gambar="sapi.jpg" data-audio="sapi.ogg" >Sapi</div>
+            <div class="hewan-item" data-nama="Unta" data-gambar="unta.jpg" data-audio="unta.ogg">Unta</div>
+            <div class="hewan-item" data-nama="Kerbau" data-gambar="kerbau.jpeg" data-audio="kerbau.ogg">Kerbau</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <audio controls id="audio2" class="d-none w-100 mt-3" >
+    <source src="" class="audioSrc2" type="audio/mp3">
+  </audio>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
@@ -55,9 +96,14 @@
       $(function(){
         $(".hewan-item").click(function () {
           let gambar = $(this).data('gambar');
+          
                 $(this).css({
                     background: `url(${gambar})`,
-                    color:'transparent'
+                    color:'transparent',
+                    height:'300px',
+                    width:'300px',
+                    backgroundSize:'cover',
+                    backgroundRepeat:'no-repeat'
                 });
                 
             });
@@ -65,13 +111,16 @@
               // $('.audio2')[0].pause();
               // $('audio')[0].load();
               let audio = $(this).data('audio');
-                $("<audio class='audio2'></audio>").attr({
-                    'src': `${audio}`,
-                    'volume': 0.4,
-                    'autoplay': 'autoplay'
-                }).appendTo("div");
-                $('.audio2')[0].pause();
-                $('audio')[0].load();
+                // $("<audio class='audio2'></audio>").attr({
+                //     'src': `${audio}`,
+                //     'volume': 0.4,
+                //     'autoplay': 'autoplay'
+                // }).appendTo("div");
+                // $('.audio2')[0].pause();
+                $('.audioSrc2').attr('src',audio);
+            $('#audio2').attr('autoplay');
+            $('audio')[0].load();
+            $('audio')[0].play();
             });
       })
     </script>
